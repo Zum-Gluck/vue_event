@@ -1,0 +1,17 @@
+@import "./normalize.css";
+
+/* 设备宽度大于750 不做适配 */
+@media screen and (min-width:750px){
+  html {
+    font-size: 75px !important;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+   list-style: none; 
+}
