@@ -1,0 +1,30 @@
+{
+  "id": "2273223",
+  "name": "Event",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "479391",
+      "name": "发布",
+      "font_class": "fabu",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "648997",
+      "name": "LC_icon_list_line_22",
+      "font_class": "square1",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "4868918",
+      "name": "profile",
+      "font_class": "profile",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    }
+  ]
+}

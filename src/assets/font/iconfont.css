@@ -1,0 +1,29 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1608088040550'); /* IE9 */
+  src: url('iconfont.eot?t=1608088040550#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQsAAsAAAAACRwAAAPfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDFAqFZIRlATYCJAMQCwoABCAFhG0HQhvJB8gOJaHAwAAAAAZgBM+vtXm7f+XO0aaetHm1pIlEooQLDUIhZSid7pl8P/22eiMmpe5VzVWH3rU5INrARuN151dE/m38zzHTrUXzP9+bS1bZcFRBCTSgqosIsjvlU7ph7CbyIG8m0DStAXTWa8AIMEvApkA8SaIHzAmVVJEdaqEsODFBvIBBnc3Q3Qbw7P1+/EGzMINMkQO41dVjTz90+eQ/TKG0Yg3G5RpowxmgnEaOTSARD4Wme1QQ2kRpWtR620ApFWef1g9TiosZkumpWKappss/XkaUAERtHrsTzvnkMSsSW3mF4MVT+AwZPIwTakwCfwCxCEA2Psy8rmKMNVgsNhvLK5EF/hWX52x6NpM3cIiduR30gx2MddauChTtppG4rMy2Uo4lWsk4Izr9rsOntTOzziXPjti6M7lr1g5tu2I7fL+icc2DlvZjj6qY1j7MXH26he3o2cqmdeda24+cqTSCnblYW8Jws5Yll0bqKD2kbebOsQF+/Bzl6VPn48cjnjxx0FmLV5RiZm0r8+zZSAYLvIyd56SfPo2sAQkIbiZCyZ0jaMSMYGbtCj6IpmduX7GjhWZ6cM/UuqzNYf9pd9j+2hxQ6aBEz7//efk77ttunQLHq57sPHBXQNq1SwzAy8a22z0guWpek5111uy620VzmLuYHZq3Dinz0G0btt1GmCuZ53plms5PN9HWjediKWn7MG+vKFZVmRPim+ZDcXGWtWFDlo6nUzp5Agw9n9i9xtgaeYtLkgpX31As26BMYte8VMpYFV+QhVy5uS6ej0QGHzcuJ3e83oL4mYmEN2DVe8csbx+na3TuvHY+34WtMM1K93VmYQjA8AJ1nurGR85R6yn8y6zymmh50WXt8N/MPLaBj+KVn4Q1Q00P+QBAfSfNwQ+iSeiBcm0uUKZkiqKYhVXCjwyA524LmtDLEIBt1IshJBONA4Q6wVYgU5mCXG0RmbCbUGjZgVLtEJo29D69ZYyMEskCrJvCQejbB5muN8j13UEm7HMoTPoOpX5Q0HQdJS7YshwS3V0mHpX4sTcTS75YVEBalfazhxExNeyR41yP4CSyInlx00ZN0tHeJErkIfYoaWIzVRWwIMciuBd3OxIOx3BcjgWJT20UUNV4u8aNhaJvauSLRYB2SkZ4qAg/zCsTJvGJiRJofxWd+flhCFGqMA+5oqxF60TIFNL0WFONNGmA7C2KNiq7lNco0oiaUakEmEAWE4H14gxEGIZisHjxsiDCR9VIoEMgrp3GQiWhqajR9JLIHZ6AJnDpFDpEIT0yQHr0eFNNSiLVI5OmpoNNEqQwAQAA') format('woff2'),
+  url('iconfont.woff?t=1608088040550') format('woff'),
+  url('iconfont.ttf?t=1608088040550') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1608088040550#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fabu:before {
+  content: "\e60f";
+}
+
+.icon-square1:before {
+  content: "\e685";
+}
+
+.icon-profile:before {
+  content: "\e60e";
+}
+

@@ -5,6 +5,7 @@ import axios from 'axios'
 import './plugins/element.js'
 import "./assets/css/base.css"
 import "./assets/js/flexible"
+import "./assets/font/iconfont.css"
 
 axios.defaults.baseURL = 'http://localhost:3000/api'
 Vue.prototype.$http = axios
