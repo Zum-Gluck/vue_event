@@ -1,13 +1,70 @@
 <template>
-  <h1>pr</h1>
+  <div>
+    <NavBar>
+      <template>
+        <span>个人中心</span>
+      </template>
+    </NavBar>
+    <div class="header">
+      <img src="~assets/img/user.jpg" alt="">
+    </div>
+    <main>
+      <div>姓名:{{ userInfo.username }}</div>
+      <div>地址:{{ userInfo.address }}</div>
+      <div>联系电话:{{ userInfo.mobile }}</div>
+      <div>修改密码 </div>
+    </main>
+  </div>
 </template>
 
 <script>
+import NavBar from '../components/content/navbar/NavBar'
 export default {
-
+  name: 'Profile',
+  components: {
+    NavBar
+  },
+  data() {
+    return {
+      userInfo: {}
+    }
+  },
+  created() {
+    this.getUserInfo()
+  },
+  methods: {
+    async getUserInfo() {
+      let { data: res } = await this.$http.post('/auth')
+      console.log(res)
+      this.userInfo = res
+    }
+  }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.header{
+  width: 5.333333rem;
+  height: 5.333333rem;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+main {
+  margin-top: 1.333333rem;
+  color: #818083;
+  font-size: .426667rem;
+  div {
+    height: 1.066667rem;
+    line-height: 1.066667rem;
+    border-bottom: 1px solid #eee;
+    padding: 0 0.426667rem;
+  }
+  & div:first-child{
+    border-top: 1px solid #eee;
+  }
+}
 </style>
