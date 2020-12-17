@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import axios from './network'
-import './plugins/element.js'
+import "./plugin/vant"
 import "./assets/css/base.css"
 import "./assets/js/flexible"
 import "./assets/font/iconfont.css"
