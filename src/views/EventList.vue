@@ -15,15 +15,40 @@
         <span class="spn"><van-icon name="search"/></span>
       </div>
     </div>
+    <div v-for="(item, index) of eventList" :key="index">
+      <Card
+        :level="item.level"
+        :timer="item.timer"
+        :description="item.description"
+        :status="item.status"
+      ></Card>
+    </div>
   </div>
 </template>
 
 <script>
 import NavBar from '../components/content/navbar/NavBar'
+import Card from '../components/content/card/Card'
 export default {
   name: 'EventList',
   components: {
-    NavBar
+    NavBar,
+    Card
+  },
+  data() {
+    return {
+      eventList: []
+    }
+  },
+  methods: {
+    async getEventList() {
+      let id = sessionStorage.getItem('id')
+      let { data: res } = await this.$http.get(`/event?id=${id}`)
+      this.eventList = res
+    }
+  },
+  created() {
+    this.getEventList()
   }
 }
 </script>

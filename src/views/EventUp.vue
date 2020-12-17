@@ -7,46 +7,52 @@
     </NavBar>
 
     <div class="main">
-      <van-field
-        v-model="upInfo.uname"
-        label="姓名"
-        placeholder="请在此输入姓名"
-      />
-      <van-field
-        v-model="upInfo.address"
-        label="地址"
-        placeholder="请在此输入地址"
-      />
-      <van-field
-        v-model="upInfo.tel"
-        label="联系电话"
-        placeholder="请在此输入联系电话"
-      />
-      <van-field name="radio" label="紧急情况" class="radio">
-        <template #input>
-          <van-radio-group v-model="upInfo.level" direction="horizontal">
-            <van-radio name="1">紧急 </van-radio>
-            <van-radio name="2">正常</van-radio>
-            <van-radio name="3">不急</van-radio>
-          </van-radio-group>
-        </template>
-      </van-field>
-      <van-field
-        class="mes"
-        v-model="upInfo.content"
-        rows="3"
-        autosize
-        type="textarea"
-        placeholder="请输入留言"
-      />
-      <div class="file_box">
-        <van-uploader v-model="fileList" multiple :max-count="3" />
-        <div>
-          <van-button type="info" @click="subClick" size="small"
-            >提交</van-button
-          >
+      <van-form @submit="onSubmit" ref="form">
+        <van-field
+          v-model="upInfo.uname"
+          :rules="[{ required: true }]"
+          label="姓名"
+          placeholder="请在此输入姓名"
+        />
+        <van-field
+          v-model="upInfo.description"
+          label="描述"
+          :rules="[{ required: true }]"
+          placeholder="请在此输入描述"
+        />
+        <van-field
+          v-model="upInfo.tel"
+          :rules="[{ required: true }]"
+          label="联系电话"
+          placeholder="请在此输入联系电话"
+        />
+        <van-field name="radio" label="紧急情况" class="radio">
+          <template #input>
+            <van-radio-group v-model="upInfo.level" direction="horizontal">
+              <van-radio name="1">紧急 </van-radio>
+              <van-radio name="2">正常</van-radio>
+              <van-radio name="3">不急</van-radio>
+            </van-radio-group>
+          </template>
+        </van-field>
+        <van-field
+          class="mes"
+          v-model="upInfo.content"
+          rows="3"
+          autosize
+          type="textarea"
+          :rules="[{ required: true }]"
+          placeholder="请输入留言"
+        />
+        <div class="file_box">
+          <van-uploader v-model="fileList" multiple :max-count="3" />
+          <div>
+            <van-button round block type="info" native-type="submit">
+              提交
+            </van-button>
+          </div>
         </div>
-      </div>
+      </van-form>
     </div>
   </div>
 </template>
@@ -64,7 +70,7 @@ export default {
       fileList: [],
       upInfo: {
         uname: '',
-        address: '',
+        description: '',
         tel: '',
         level: '3',
         content: ''
@@ -72,9 +78,21 @@ export default {
     }
   },
   methods: {
-    async subClick() {
+    async onSubmit() {
       this.upInfo.id = sessionStorage.getItem('id')
-      let res = await this.$http.post('/event', qs.stringify(this.upInfo))
+      let { data: res } = await this.$http.post(
+        '/event',
+        qs.stringify(this.upInfo)
+      )
+      if (res.status != 200) return this.$toast.fail('上报失败，请联系管理员')
+      this.$toast.success('上报成功')
+      let ipts = this.$refs.form.$el.querySelectorAll('.van-field__control')
+      ipts.forEach((element, index) => {
+        if (index == 3) {
+          this.upInfo.level = '3'
+        }
+        element.value = ''
+      })
     }
   }
 }
