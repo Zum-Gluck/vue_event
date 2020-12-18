@@ -21,6 +21,7 @@
         :timer="item.timer"
         :description="item.description"
         :status="item.status"
+        :_id="item._id"
       ></Card>
     </div>
   </div>

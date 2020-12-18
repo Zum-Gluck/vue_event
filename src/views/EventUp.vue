@@ -45,7 +45,7 @@
           placeholder="请输入留言"
         />
         <div class="file_box">
-          <van-uploader v-model="fileList" multiple :max-count="3" />
+          <van-uploader v-model="upInfo.fileList" multiple :max-count="3" />
           <div>
             <van-button round block type="info" native-type="submit">
               提交
@@ -67,31 +67,44 @@ export default {
   },
   data() {
     return {
-      fileList: [],
       upInfo: {
         uname: '',
         description: '',
         tel: '',
         level: '3',
-        content: ''
+        content: '',
+        fileList: [],
+        fileName: []
       }
     }
   },
   methods: {
     async onSubmit() {
       this.upInfo.id = sessionStorage.getItem('id')
+      this.getFileName()
       let { data: res } = await this.$http.post(
         '/event',
         qs.stringify(this.upInfo)
       )
       if (res.status != 200) return this.$toast.fail('上报失败，请联系管理员')
       this.$toast.success('上报成功')
-      let ipts = this.$refs.form.$el.querySelectorAll('.van-field__control')
-      ipts.forEach((element, index) => {
-        if (index == 3) {
-          this.upInfo.level = '3'
+      this.upInfo.fileName = []
+
+      for (let k in this.upInfo) {
+        // 利用双向绑定 清空用户输入
+        if (k == 'level') {
+          this.upInfo[k] = '3'
+        } else if (this.upInfo[k] instanceof Array) {
+          this.upInfo[k] = []
+        } else {
+          this.upInfo[k] = ''
         }
-        element.value = ''
+      }
+    },
+    getFileName() {
+      this.upInfo.fileList.forEach((item, index) => {
+        //用来获取上传文件的名称
+        this.upInfo.fileName.push(item.file.name)
       })
     }
   }

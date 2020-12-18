@@ -5,11 +5,13 @@ import User from "../views/User"
 import Profile from "../views/Profile"
 import EventList from "../views/EventList"
 import EventUp from "../views/EventUp"
+import Details from "../views/Details"
 Vue.use(VueRouter)
 
 const routes = [
   { path: "/", redirect: '/login' },
   { path: "/login", component: Login },
+  { path: "/details", component: Details },
   {
     path: "/user", component: User, children: [
       { path: '/', redirect: 'profile' },

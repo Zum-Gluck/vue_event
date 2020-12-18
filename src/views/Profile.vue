@@ -12,11 +12,13 @@
       <div>姓名:{{ userInfo.username }}</div>
       <div>地址:{{ userInfo.address }}</div>
       <div>联系电话:{{ userInfo.mobile }}</div>
-      <div>修改密码</div>
+      <div class="modify">修改密码<van-icon name="arrow" /></div>
+      <div class="modify" @click="loginOut">
+        退出登录<van-icon name="arrow" />
+      </div>
     </main>
   </div>
 </template>
-
 <script>
 import NavBar from '../components/content/navbar/NavBar'
 export default {
@@ -37,6 +39,10 @@ export default {
       let { data: res } = await this.$http.post('/auth')
       this.userInfo = res
       sessionStorage.setItem('id', res._id)
+    },
+    loginOut() {
+      sessionStorage.clear()
+      this.$router.replace('/login')
     }
   }
 }
@@ -70,6 +76,11 @@ main {
   }
   & div:first-child {
     border-top: 1px solid #eee;
+  }
+  .modify {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 </style>
