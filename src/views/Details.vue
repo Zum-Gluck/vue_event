@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div>
     <NavBar :backShow="true">
       <template>
